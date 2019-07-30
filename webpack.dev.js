@@ -26,6 +26,8 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 module.exports = {
 	module: {
@@ -81,7 +83,29 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './src/index.html'
 		}),
-		new CleanWebpackPlugin()
+		new CleanWebpackPlugin(),
+		new WorkboxWebpackPlugin.GenerateSW({
+			globDirectory: "./dist",
+			globPatterns: [
+				"*.{html,js,css}",
+				"fonts/*.{eot,ttf,woff,woff2,svg}"
+			],
+			swDest: "./sw.js",
+			clientsClaim: true,
+			skipWaiting: true
+		}),
+		new WebpackPwaManifest({
+			name: "My PWA Demo App",
+			short_name: "My PWA",
+			display: "standalone",
+			start_url: "./?utm_source=web_app_manifest",
+			icons: [
+				{
+					src: path.resolve('src/assets/icon.png'),
+					sizes: [96, 128, 192, 256, 384, 512]
+				}
+			]
+		})
 	],
 
 	resolve: {
