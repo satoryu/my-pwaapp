@@ -97,6 +97,7 @@ module.exports = {
 		new WebpackPwaManifest({
 			name: "My PWA Demo App",
 			short_name: "My PWA",
+			description: "This is a sandbox.",
 			display: "standalone",
 			start_url: "./?utm_source=web_app_manifest",
 			icons: [
