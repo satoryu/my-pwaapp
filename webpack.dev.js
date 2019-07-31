@@ -99,6 +99,8 @@ module.exports = {
 			short_name: "My PWA",
 			description: "This is a sandbox.",
 			display: "standalone",
+			background_color: '#FFFFF',
+			theme_color: '#8FE3D9',
 			start_url: "./?utm_source=web_app_manifest",
 			icons: [
 				{
