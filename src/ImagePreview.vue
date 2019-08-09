@@ -16,11 +16,19 @@ export default {
         }
     },
     created: function() {
-        this.convert(this.file).then((data) => {
-            this.dataUrl = data
-        })
+        this.loadFileAsDataURL()
+    },
+    watch: {
+        file: function() {
+            this.loadFileAsDataURL()
+        }
     },
     methods: {
+        loadFileAsDataURL: function() {
+            this.convert(this.file).then((data) => {
+                this.dataUrl = data
+            })
+        },
         convert: function(file) {
             return new Promise( function(resolve, reject) {
                 // file is not selected yet
