@@ -3,8 +3,7 @@
         <h1>{{ greeting }} {{ name }}!</h1>
 
         <input type="file" @change.prevent="chooseFiles">
-
-        <div id="image-preview" v-if="file">
+        <div v-if="file">
             <image-preview v-bind:file="file"></image-preview>
         </div>
     </div>
