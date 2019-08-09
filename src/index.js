@@ -1,7 +1,9 @@
+import {Workbox} from 'workbox-window'
+
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js");
-  })
+  const workbox = new Workbox('./sw.js');
+
+  workbox.register();
 }
 
 import Vue from 'vue';

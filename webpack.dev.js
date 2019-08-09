@@ -84,15 +84,14 @@ module.exports = {
 			template: './src/index.html'
 		}),
 		new CleanWebpackPlugin(),
-		new WorkboxWebpackPlugin.GenerateSW({
+		new WorkboxWebpackPlugin.InjectManifest({
 			globDirectory: "./dist",
 			globPatterns: [
 				"*.{html,js,css}",
 				"fonts/*.{eot,ttf,woff,woff2,svg}"
 			],
 			swDest: "./sw.js",
-			clientsClaim: true,
-			skipWaiting: true
+			swSrc: "./src/sw.js"
 		}),
 		new WebpackPwaManifest({
 			name: "My PWA Demo App",
