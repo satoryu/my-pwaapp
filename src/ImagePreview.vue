@@ -25,24 +25,15 @@ export default {
     },
     methods: {
         loadFileAsDataURL: function() {
-            this.convert(this.file).then((data) => {
-                this.dataUrl = data
-            })
-        },
-        convert: function(file) {
-            return new Promise( function(resolve, reject) {
-                // file is not selected yet
-                if (!file) {
-                    resolve(null)
-                }
+            if (!file) {
+                return
+            }
 
-                const fileReader = new FileReader()
-                fileReader.onload = function () {
-                    resolve(this.result)
-                }
-                fileReader.onerror = (err) => { reject(err) }
-                fileReader.readAsDataURL(file)
-            });
+            const fileReader = new FileReader()
+            fileReader.onload = function (event) {
+                this.dataUrl = event.target.result
+            }
+            fileReader.readAsDataURL(file)
         }
     }
 }
