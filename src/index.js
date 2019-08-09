@@ -3,7 +3,9 @@ import {Workbox} from 'workbox-window'
 if ("serviceWorker" in navigator) {
   const workbox = new Workbox('./sw.js');
 
-  workbox.register();
+  workbox.register().then(() => {
+    console.log('Service Worker is registered.')
+  });
 }
 
 import Vue from 'vue';

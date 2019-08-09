@@ -84,14 +84,10 @@ module.exports = {
 			template: './src/index.html'
 		}),
 		new CleanWebpackPlugin(),
-		new WorkboxWebpackPlugin.InjectManifest({
-			globDirectory: "./dist",
-			globPatterns: [
-				"*.{html,js,css}",
-				"fonts/*.{eot,ttf,woff,woff2,svg}"
-			],
-			swDest: "./sw.js",
-			swSrc: "./src/sw.js"
+		new WorkboxWebpackPlugin.GenerateSW({
+			skipWaiting: true,
+			clientsClaim: true,
+			swDest: "./sw.js"
 		}),
 		new WebpackPwaManifest({
 			name: "My PWA Demo App",
@@ -100,7 +96,7 @@ module.exports = {
 			display: "standalone",
 			background_color: '#FFFFFF',
 			theme_color: '#8FE3D9',
-			start_url: "./?utm_source=web_app_manifest",
+			start_url: "/?utm_source=web_app_manifest",
 			icons: [
 				{
 					src: path.resolve('src/assets/icon.png'),
