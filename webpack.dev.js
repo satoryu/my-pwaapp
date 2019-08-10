@@ -85,6 +85,7 @@ module.exports = {
 		}),
 		new CleanWebpackPlugin(),
 		new WorkboxWebpackPlugin.GenerateSW({
+			include: [/.+\.(html|js|css|png)/],
 			skipWaiting: true,
 			clientsClaim: true,
 			swDest: "./sw.js"
@@ -97,6 +98,7 @@ module.exports = {
 			background_color: '#FFFFFF',
 			theme_color: '#8FE3D9',
 			start_url: "/?utm_source=web_app_manifest",
+			ios: true,
 			icons: [
 				{
 					src: path.resolve('src/assets/icon.png'),
@@ -106,7 +108,14 @@ module.exports = {
 					src: path.resolve('src/assets/icon.png'),
 					sizes: [120, 152, 167, 180, 1024],
 					destination: path.join('icons', 'ios'),
+					inject: true,
 					ios: true
+				},
+				{
+					src: path.resolve('src/assets/icon.png'),
+					size: 1024,
+					destination: path.join('icons', 'ios'),
+					ios: 'startup'
 				}
 			]
 		})
