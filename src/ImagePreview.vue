@@ -25,15 +25,15 @@ export default {
     },
     methods: {
         loadFileAsDataURL: function() {
-            if (!file) {
+            if (!this.file) {
                 return
             }
 
             const fileReader = new FileReader()
-            fileReader.onload = function (event) {
+            fileReader.onload = (event) => {
                 this.dataUrl = event.target.result
             }
-            fileReader.readAsDataURL(file)
+            fileReader.readAsDataURL(this.file)
         }
     }
 }
