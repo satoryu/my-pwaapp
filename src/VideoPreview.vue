@@ -1,6 +1,7 @@
 <template>
     <div>
         <video
+            width="100px"
             autoplay
             playsinline
             class="preview"
@@ -18,7 +19,7 @@
 export default {
     mounted: function() {
         if ('getUserMedia' in navigator) {
-            navigator.mediaDevices.getUserMedia({ video: true }).then((mediaStream) => {
+            navigator.mediaDevices.getUserMedia({ video: { aspectRatio: 1 } }).then((mediaStream) => {
                 const video = this.$el.getElementsByTagName('video')[0]
                 video.srcObject = mediaStream
                 video.onloadedmetadata = () => {
