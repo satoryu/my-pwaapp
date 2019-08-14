@@ -6,14 +6,16 @@
         <div v-if="file">
             <image-preview v-bind:file="file"></image-preview>
         </div>
+        <video-preview></video-preview>
     </div>
 </template>
 
 <script>
 import ImagePreview from './ImagePreview.vue'
+import VideoPreview from './VideoPreview.vue'
 
 export default {
-    components: { ImagePreview },
+    components: { ImagePreview, VideoPreview },
     data: function() {
         return {
             greeting: 'Hello,',
