@@ -5,6 +5,12 @@
             playsinline
             class="preview"
         ></video>
+        <div
+            v-if="errorMessage"
+            id="error-message"
+        >
+            {{ errorMessage }}
+        </div>
     </div>
 </template>
 
@@ -12,20 +18,21 @@
 export default {
     mounted: function() {
         if ('getUserMedia' in navigator) {
-            navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then((mediaStream) => {
+            navigator.mediaDevices.getUserMedia({ video: true }).then((mediaStream) => {
                 const video = this.$el.getElementsByTagName('video')[0]
                 video.srcObject = mediaStream
                 video.onloadedmetadata = () => {
                     video.play()
                 }
-            }).catch(function(e) {
+            }).catch((e) => {
                 console.log('Rejected', e)
+                this.errorMessage = `${e.name} ${e.message}`
             })
         }
     },
     data: function () {
         return {
-            videoSourceObject: null
+            errorMessage: null
         }
     }
 
