@@ -2,6 +2,7 @@
     <div>
         <video
             autoplay
+            playsinline
             class="preview"
         ></video>
     </div>
