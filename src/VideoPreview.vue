@@ -26,6 +26,8 @@ export default {
                 console.log('Rejected', e)
                 this.errorMessage = `${e.name} ${e.message}`
             })
+        } else {
+            console.warn('This device does not support mediaDevices and/or getUserMedia.')
         }
     },
     data: function () {
