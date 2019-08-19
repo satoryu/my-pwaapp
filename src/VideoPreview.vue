@@ -1,7 +1,7 @@
 <template>
     <div>
         <video
-            width="100px"
+            width="600px"
             autoplay
             playsinline
             class="preview"
@@ -18,13 +18,10 @@
 <script>
 export default {
     mounted: function() {
-        if ('getUserMedia' in navigator) {
-            navigator.mediaDevices.getUserMedia({ video: { aspectRatio: 1 } }).then((mediaStream) => {
+        if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
+            navigator.mediaDevices.getUserMedia({ video: true }).then((mediaStream) => {
                 const video = this.$el.getElementsByTagName('video')[0]
                 video.srcObject = mediaStream
-                video.onloadedmetadata = () => {
-                    video.play()
-                }
             }).catch((e) => {
                 console.log('Rejected', e)
                 this.errorMessage = `${e.name} ${e.message}`
