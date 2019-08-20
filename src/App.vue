@@ -2,43 +2,49 @@
   <v-app id="inspire">
     <v-navigation-drawer
       v-model="drawer"
-      fixed
       app
     >
       <v-list dense>
-        <v-list-tile @click="">
-          <v-list-tile-action>
+        <v-list-item>
+          <v-list-item-action>
             <v-icon>mdi-home</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Home</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile @click="">
-          <v-list-tile-action>
-            <v-icon>contact_mail</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Contact</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-action>
+            <v-icon>mdi-contact-mail</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Contact</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar color="indigo" dark fixed app>
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+
+    <v-app-bar
+      app
+      color="indigo"
+      dark
+    >
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Application</v-toolbar-title>
-    </v-toolbar>
+    </v-app-bar>
+
     <v-content>
-      <v-container fluid fill-height>
-        <v-layout
-          justify-center
-          align-center
-        >
-        </v-layout>
+      <v-container
+        class="fill-height"
+        fluid
+      >
       </v-container>
     </v-content>
-    <v-footer color="indigo" app>
-      <span class="white--text">&copy; 2017</span>
+    <v-footer
+      color="indigo"
+      app
+    >
+      <span class="white--text">&copy; 2019</span>
     </v-footer>
   </v-app>
     <!-- <div>

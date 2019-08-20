@@ -77,7 +77,7 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.(scss|sass)$/,
+				test: /\.s(c|a)ss$/,
 
 				use: [
 					{
@@ -112,7 +112,7 @@ module.exports = {
 		}),
 		new CleanWebpackPlugin(),
 		new WorkboxWebpackPlugin.GenerateSW({
-			include: [/.+\.(html|js|css|png)/],
+			include: [/\.(html|js|css|png|woff(2)|ttf|eot|svg)$/],
 			skipWaiting: true,
 			clientsClaim: true,
 			swDest: "./sw.js"
@@ -150,10 +150,9 @@ module.exports = {
 
 	resolve: {
 		alias: {
-			'@': path.resolve('src'),
 			vue$: "vue/dist/vue.esm.js"
 		}
-	  },
+	},
 
 	mode: 'development',
 
