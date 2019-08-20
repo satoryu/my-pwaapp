@@ -10,10 +10,11 @@ if ("serviceWorker" in navigator) {
 
 import Vue from 'vue';
 import App from './App.vue';
-import '@/plugins/vuetify'
+import vuetify from './plugins/vuetify'
 
 new Vue({
   el: "#app",
+  vuetify,
   components: { App },
   template: '<App/></App>'
 });
