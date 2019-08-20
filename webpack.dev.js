@@ -58,7 +58,11 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				loader: 'css-loader'
+				use: ['style-loader', 'css-loader']
+			},
+			{
+				test: /\.styl$/,
+				use: ['style-loader', 'css-loader', 'stylus-loader']
 			},
 			{
 				test: /\.(woff(2)?|ttf|eot|svg)/,
@@ -77,7 +81,7 @@ module.exports = {
 
 				use: [
 					{
-						loader: 'vue-style-loader'
+						loader: 'style-loader'
 					},
 					{
 						loader: 'css-loader'

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config ./webpack.dev.js",
+    "build": "webpack --config ./webpack.dev.js --debug --verbose",
     "watch": "webpack --config ./webpack.dev.js --watch",
     "prod": "webpack --config ./webpack.dev.js --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,7 +15,7 @@
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
-    "@mdi/font": "^4.0.96",
+    "@mdi/font": "^3.9.0",
     "@webpack-cli/init": "^0.2.2",
     "babel-loader": "^8.0.5",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
@@ -28,11 +28,13 @@
     "sass": "^1.22.10",
     "sass-loader": "^7.2.0",
     "style-loader": "^1.0.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
     "uglifyjs-webpack-plugin": "^2.1.3",
     "vue": "^2.6.10",
     "vue-loader": "^15.7.1",
     "vue-template-compiler": "^2.6.10",
-    "vuetify": "^2.0.7",
+    "vuetify": "^1.5.17",
     "vuetify-loader": "^1.3.0",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7",

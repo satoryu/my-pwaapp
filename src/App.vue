@@ -1,5 +1,47 @@
 <template>
-    <div>
+  <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawer"
+      fixed
+      app
+    >
+      <v-list dense>
+        <v-list-tile @click="">
+          <v-list-tile-action>
+            <v-icon>mdi-home</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Home</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile @click="">
+          <v-list-tile-action>
+            <v-icon>contact_mail</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Contact</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar color="indigo" dark fixed app>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-title>Application</v-toolbar-title>
+    </v-toolbar>
+    <v-content>
+      <v-container fluid fill-height>
+        <v-layout
+          justify-center
+          align-center
+        >
+        </v-layout>
+      </v-container>
+    </v-content>
+    <v-footer color="indigo" app>
+      <span class="white--text">&copy; 2017</span>
+    </v-footer>
+  </v-app>
+    <!-- <div>
         <h1>{{ greeting }} {{ name }}!</h1>
 
         <input type="file" accept="image/*;capture=camera" @change.prevent="chooseFiles">
@@ -7,7 +49,7 @@
             <image-preview v-bind:file="file"></image-preview>
         </div>
         <video-preview></video-preview>
-    </div>
+    </div> -->
 </template>
 
 <script>
@@ -20,7 +62,8 @@ export default {
         return {
             greeting: 'Hello,',
             name: 'Vue Component',
-            file: null
+            file: null,
+            drawer: true
         }
     },
     methods: {
