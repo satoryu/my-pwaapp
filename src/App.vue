@@ -34,10 +34,17 @@
     </v-app-bar>
 
     <v-content>
-      <v-container
-        class="fill-height"
-        fluid
-      >
+      <v-container fluid fill-height>
+        <v-layout
+          justify-center
+          align-center
+        >
+        <input type="file" accept="image/*;capture=camera" @change.prevent="chooseFiles">
+        <div v-if="file">
+            <image-preview v-bind:file="file"></image-preview>
+        </div>
+        <video-preview></video-preview>
+        </v-layout>
       </v-container>
     </v-content>
     <v-footer
@@ -47,15 +54,6 @@
       <span class="white--text">&copy; 2019</span>
     </v-footer>
   </v-app>
-    <!-- <div>
-        <h1>{{ greeting }} {{ name }}!</h1>
-
-        <input type="file" accept="image/*;capture=camera" @change.prevent="chooseFiles">
-        <div v-if="file">
-            <image-preview v-bind:file="file"></image-preview>
-        </div>
-        <video-preview></video-preview>
-    </div> -->
 </template>
 
 <script>
