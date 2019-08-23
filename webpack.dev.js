@@ -1,3 +1,4 @@
+require('dotenv').config();
 const webpack = require('webpack');
 const path = require('path');
 
@@ -111,6 +112,10 @@ module.exports = {
 			template: './src/index.html'
 		}),
 		new CleanWebpackPlugin(),
+		new webpack.DefinePlugin({
+			PHOTO_API_HOST: JSON.stringify(process.env.PHOTO_API_API_HOST),
+			PHOTO_API_FUNCTION_KEY: JSON.stringify(process.env.PHOTO_API_FUNCTION_KEY)
+		}),
 		new WorkboxWebpackPlugin.GenerateSW({
 			include: [/\.(html|js|css|png|woff(2)|ttf|eot|svg)$/],
 			skipWaiting: true,
@@ -150,6 +155,7 @@ module.exports = {
 
 	resolve: {
 		alias: {
+			'@': path.resolve('./src'),
 			vue$: "vue/dist/vue.esm.js"
 		}
 	},
