@@ -113,8 +113,11 @@ module.exports = {
 		}),
 		new CleanWebpackPlugin(),
 		new webpack.DefinePlugin({
-			PHOTO_API_HOST: JSON.stringify(process.env.PHOTO_API_API_HOST),
+			PHOTO_API_HOST: JSON.stringify(process.env.PHOTO_API_HOST),
 			PHOTO_API_FUNCTION_KEY: JSON.stringify(process.env.PHOTO_API_FUNCTION_KEY)
+		}),
+		new webpack.SourceMapDevToolPlugin({
+			filename: '[name].js.map'
 		}),
 		new WorkboxWebpackPlugin.GenerateSW({
 			include: [/\.(html|js|css|png|woff(2)|ttf|eot|svg)$/],

@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         uploadPhoto: function() {
-            alert('upload')
+            postPhoto(this.file.name, this.dataUrl)
         },
         loadFileAsDataURL: function() {
             if (!this.file) {
