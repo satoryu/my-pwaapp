@@ -39,11 +39,7 @@
           justify-center
           align-center
         >
-        <input type="file" accept="image/*;capture=camera" @change.prevent="chooseFiles">
-        <div v-if="file">
-            <image-preview v-bind:file="file"></image-preview>
-        </div>
-        <video-preview></video-preview>
+          <image-preview></image-preview>
         </v-layout>
       </v-container>
     </v-content>
@@ -66,15 +62,7 @@ export default {
         return {
             greeting: 'Hello,',
             name: 'Vue Component',
-            file: null,
             drawer: true
-        }
-    },
-    methods: {
-        chooseFiles: function(event) {
-            if (event.target && event.target.files.length > 0) {
-                this.file = event.target.files[0];
-            }
         }
     }
 }
